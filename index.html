@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youssef Hebish - Software Tester & CS Student</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .skill-bar {
+            height: 8px;
+            background: #e5e7eb;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 4px;
+            transition: width 2s ease-in-out;
+        }
+        
+        .project-card {
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .floating-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .typing-animation {
+            border-right: 2px solid #667eea;
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 50% { border-color: transparent; }
+            51%, 100% { border-color: #667eea; }
+        }
+        
+        .section-fade {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+        
+        .section-fade.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .navbar-blur {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.9);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold text-gray-800">
+                    <span class="text-purple-600">Y</span>oussef <span class="text-purple-600">H</span>ebish
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-purple-600 transition-colors">Home</a>
+                    <a href="#about" class="text-gray-700 hover:text-purple-600 transition-colors">About</a>
+                    <a href="#skills" class="text-gray-700 hover:text-purple-600 transition-colors">Skills</a>
+                    <a href="#services" class="text-gray-700 hover:text-purple-600 transition-colors">Services</a>
+                    <a href="#projects" class="text-gray-700 hover:text-purple-600 transition-colors">Projects</a>
+                    <a href="#contact" class="text-gray-700 hover:text-purple-600 transition-colors">Contact</a>
+                </div>
+                <button class="md:hidden text-gray-700" id="mobile-menu-btn">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="fixed inset-0 bg-white z-40 transform translate-x-full transition-transform duration-300 md:hidden" id="mobile-menu">
+        <div class="flex flex-col items-center justify-center h-full space-y-8">
+            <a href="#home" class="text-2xl text-gray-700 hover:text-purple-600 transition-colors">Home</a>
+            <a href="#about" class="text-2xl text-gray-700 hover:text-purple-600 transition-colors">About</a>
+            <a href="#skills" class="text-2xl text-gray-700 hover:text-purple-600 transition-colors">Skills</a>
+            <a href="#services" class="text-2xl text-gray-700 hover:text-purple-600 transition-colors">Services</a>
+            <a href="#projects" class="text-2xl text-gray-700 hover:text-purple-600 transition-colors">Projects</a>
+            <a href="#contact" class="text-2xl text-gray-700 hover:text-purple-600 transition-colors">Contact</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="gradient-bg min-h-screen flex items-center justify-center relative overflow-hidden">
+        <div class="absolute inset-0">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5593f6fb-dfec-4ed5-826d-b96d78465755.png" alt="Modern tech workspace with multiple monitors showing code and testing frameworks, dark ambient lighting with purple and blue accents" class="w-full h-full object-cover opacity-20" />
+        </div>
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <div class="floating-animation">
+                <h1 class="text-5xl md:text-7xl font-bold text-white mb-6">
+                    Hi, I'm <span class="text-yellow-300">Youssef Hebish</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-white mb-8 typing-animation" id="typing-text">
+                    Software Tester & Computer Science Student
+                </p>
+                <p class="text-lg text-gray-200 mb-12 max-w-2xl mx-auto">
+                    Passionate about ensuring software quality through comprehensive testing methodologies and innovative solutions. Currently pursuing Computer Science while building expertise in automated testing frameworks.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#projects" class="bg-yellow-400 text-gray-900 px-8 py-4 rounded-full font-semibold hover:bg-yellow-300 transition-colors transform hover:scale-105">
+                        View My Work
+                    </a>
+                    <a href="#contact" class="glass-effect text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-gray-900 transition-all transform hover:scale-105">
+                        Get In Touch
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
+            <i class="fas fa-chevron-down text-2xl"></i>
+        </div>
+    </section>
+<section id="about" class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+        <div class="section-fade">
+            <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">About Me</h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <img src="a.jpg" alt="Professional headshot of Youssef Hebish in business casual attire, confident smile, modern office background with subtle tech elements" class="rounded-lg shadow-2xl w-full" />
+                </div>
+                <div>
+                    <h3 class="text-3xl font-semibold mb-6 text-gray-800">Dedicated to Quality Assurance Excellence</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        As a Software Tester and Computer Science student, I bring a unique perspective that combines theoretical knowledge with practical testing expertise. My passion lies in identifying potential issues before they reach end-users and ensuring software meets the highest quality standards.
+                    </p>
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        Currently pursuing my Computer Science degree while gaining hands-on experience in various testing methodologies, from manual testing to automated test framework development. I believe in continuous learning and staying updated with the latest industry trends and technologies.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="text-center p-4 bg-purple-50 rounded-lg">
+                            <a href="https://youssefhebish27.atlassian.net/projects/MSP?selectedItem=com.atlassian.plugins.atlassian-connect-plugin%3Acom.kanoah.test-manager__main-project-page&atlOrigin=eyJpIjoiN2RiNDU5ZGIxNGE1NDE4M2EwZjBmNDI5MDliYzE1MTgiLCJwIjoiaiJ9#!/v2/testCases?projectId=10099" target="_blank" rel="noopener noreferrer">
+                                <h4 class="text-2xl font-bold text-purple-600 mb-2">50+</h4>
+                                <p class="text-gray-600">Test Cases Written</p>
+                            </a>
+                        </div>
+                        <div class="text-center p-4 bg-blue-50 rounded-lg">
+                            <a href="https://trello.com/invite/b/689592437048caa1bf05f17b/ATTIa3973d745931cd473eaa34d34bad97e149E51247/facebook-and-udemy" target="_blank" rel="noopener noreferrer">
+                                <h4 class="text-2xl font-bold text-blue-600 mb-2">200</h4>
+                                <p class="text-gray-600">Test Scenario</p>
+                            </a>
+                        </div>
+                        <div class="text-center p-4 bg-green-50 rounded-lg">
+                            <a href="https://trello.com/invite/b/68ada21c6171cdb1bfa3ddfa/ATTIc3d3176b95bfdd4a197871e743f3809270DD95D1/defect-reports" target="_blank" rel="noopener noreferrer">
+                                <h4 class="text-2xl font-bold text-green-600 mb-2">11</h4>
+                                <p class="text-gray-600">Bug Report</p>
+                            </a>
+                        </div>
+                        <div class="text-center p-4 bg-yellow-50 rounded-lg">
+                            <h4 class="text-2xl font-bold text-yellow-600 mb-2">0+</h4>
+                            <p class="text-gray-600">Years of Experience</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="section-fade">
+                <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">Technical Skills</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Testing Tools -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg">
+                        <div class="text-center mb-6">
+                            <i class="fas fa-bug text-4xl text-red-500 mb-4"></i>
+                            <h3 class="text-2xl font-semibold text-gray-800">Testing Tools</h3>
+                        </div>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-gray-700">Selenium WebDriver</span>
+                                    <span class="text-gray-500">90%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-gray-700">Postman/API Testing</span>
+                                    <span class="text-gray-500">85%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-gray-700">JIRA/TestRail</span>
+                                    <span class="text-gray-500">80%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 80%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-gray-700">Jenkins CI/CD</span>
+                                    <span class="text-gray-500">75%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 75%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Programming Languages -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg">
+                        <div class="text-center mb-6">
+                            <i class="fas fa-code text-4xl text-blue-500 mb-4"></i>
+                            <h3 class="text-2xl font-semibold text-gray-800">Programming</h3>
+                        </div>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-gray-700">Python</span>
+                                    <span class="text-gray-500">88%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 88%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-gray-700">Java</span>
+                                    <span class="text-gray-500">82%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 82%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-gray-700">JavaScript</span>
+                                    <span class="text-gray-500">85%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-gray-700">SQL</span>
+                                    <span class="text-gray-500">80%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 80%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testing Methodologies -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg">
+                        <div class="text-center mb-6">
+                            <i class="fas fa-cogs text-4xl text-green-500 mb-4"></i>
+                            <h3 class="text-2xl font-semibold text-gray-800">Methodologies</h3>
+                        </div>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-gray-700">Agile/Scrum</span>
+                                    <span class="text-gray-500">90%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-gray-700">Test-Driven Development</span>
+                                    <span class="text-gray-500">85%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-gray-700">Behavior-Driven Development</span>
+                                    <span class="text-gray-500">80%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 80%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-gray-700">Performance Testing</span>
+                                    <span class="text-gray-500">75%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 75%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="section-fade">
+                <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">Services & Expertise</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="text-center p-8 bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl hover:shadow-xl transition-all">
+                        <i class="fas fa-search text-5xl text-purple-600 mb-6"></i>
+                        <h3 class="text-xl font-semibold mb-4 text-gray-800">Manual Testing</h3>
+                        <p class="text-gray-600">Comprehensive manual testing including functional, usability, and exploratory testing to ensure optimal user experience.</p>
+                    </div>
+                    <div class="text-center p-8 bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl hover:shadow-xl transition-all">
+                        <i class="fas fa-robot text-5xl text-blue-600 mb-6"></i>
+                        <h3 class="text-xl font-semibold mb-4 text-gray-800">Test Automation</h3>
+                        <p class="text-gray-600">Design and implementation of automated test suites using modern frameworks to increase testing efficiency and coverage.</p>
+                    </div>
+                    <div class="text-center p-8 bg-gradient-to-br from-green-50 to-green-100 rounded-xl hover:shadow-xl transition-all">
+                        <i class="fas fa-mobile-alt text-5xl text-green-600 mb-6"></i>
+                        <h3 class="text-xl font-semibold mb-4 text-gray-800">Mobile Testing</h3>
+                        <p class="text-gray-600">Cross-platform mobile application testing on various devices and operating systems to ensure consistent performance.</p>
+                    </div>
+                    <div class="text-center p-8 bg-gradient-to-br from-red-50 to-red-100 rounded-xl hover:shadow-xl transition-all">
+                        <i class="fas fa-tachometer-alt text-5xl text-red-600 mb-6"></i>
+                        <h3 class="text-xl font-semibold mb-4 text-gray-800">Performance Testing</h3>
+                        <p class="text-gray-600">Load and stress testing to identify performance bottlenecks and ensure applications can handle expected user loads.</p>
+                    </div>
+                    <div class="text-center p-8 bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl hover:shadow-xl transition-all">
+                        <i class="fas fa-shield-alt text-5xl text-yellow-600 mb-6"></i>
+                        <h3 class="text-xl font-semibold mb-4 text-gray-800">Security Testing</h3>
+                        <p class="text-gray-600">Vulnerability assessment and security testing to identify potential security flaws and ensure data protection.</p>
+                    </div>
+                    <div class="text-center p-8 bg-gradient-to-br from-indigo-50 to-indigo-100 rounded-xl hover:shadow-xl transition-all">
+                        <i class="fas fa-chart-line text-5xl text-indigo-600 mb-6"></i>
+                        <h3 class="text-xl font-semibold mb-4 text-gray-800">Test Strategy Consulting</h3>
+                        <p class="text-gray-600">Development of comprehensive testing strategies and quality assurance processes tailored to project requirements.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="section-fade">
+                <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">Featured Projects</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ceee5dac-7c4d-4a6e-8500-10a46b156728.png" alt="E-commerce testing dashboard showing test results, metrics, and automated test execution pipeline with green and red status indicators" class="w-full h-48 object-cover" />
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-3 text-gray-800">E-commerce Platform Testing</h3>
+                            <p class="text-gray-600 mb-4">Comprehensive testing suite for a large-scale e-commerce platform including payment processing, inventory management, and user authentication.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm">Selenium</span>
+                                <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">Python</span>
+                                <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm">API Testing</span>
+                            </div>
+                            <a href="#" class="text-purple-600 hover:text-purple-800 font-semibold">View Details <i class="fas fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/332851fa-8166-42ec-b98b-8af43f8b2eb2.png" alt="Mobile app testing interface showing device compatibility matrix, test case execution results, and performance metrics across different mobile platforms" class="w-full h-48 object-cover" />
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-3 text-gray-800">Mobile Banking App QA</h3>
+                            <p class="text-gray-600 mb-4">Security-focused testing for a mobile banking application with emphasis on data encryption, biometric authentication, and transaction integrity.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm">Appium</span>
+                                <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">Security Testing</span>
+                                <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm">iOS/Android</span>
+                            </div>
+                            <a href="#" class="text-purple-600 hover:text-purple-800 font-semibold">View Details <i class="fas fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2aad58f6-f7b3-4470-9bee-53f17d9399ca.png" alt="Performance testing dashboard displaying load testing results, response time graphs, CPU usage charts, and concurrent user metrics for web application optimization" class="w-full h-48 object-cover" />
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-3 text-gray-800">Healthcare System Performance Testing</h3>
+                            <p class="text-gray-600 mb-4">Load and stress testing for a critical healthcare management system to ensure reliability during peak usage periods.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm">JMeter</span>
+                                <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">LoadRunner</span>
+                                <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm">Performance</span>
+                            </div>
+                            <a href="#" class="text-purple-600 hover:text-purple-800 font-semibold">View Details <i class="fas fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/a39ed0eb-04aa-4b11-a048-6a49d59d10ef.png" alt="Test automation framework architecture diagram showing CI/CD pipeline integration, test execution flow, and reporting mechanisms with modern DevOps tools" class="w-full h-48 object-cover" />
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-3 text-gray-800">Test Automation Framework</h3>
+                            <p class="text-gray-600 mb-4">Custom-built test automation framework with CI/CD integration, parallel execution capabilities, and comprehensive reporting.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm">TestNG</span>
+                                <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">Jenkins</span>
+                                <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm">Maven</span>
+                            </div>
+                            <a href="#" class="text-purple-600 hover:text-purple-800 font-semibold">View Details <i class="fas fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6b800e76-3af0-415d-89de-b1a86a95abc8.png" alt="API testing interface showing REST endpoint testing, JSON response validation, automated test suite execution, and integration testing workflows" class="w-full h-48 object-cover" />
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-3 text-gray-800">Microservices API Testing</h3>
+                            <p class="text-gray-600 mb-4">Comprehensive API testing suite for microservices architecture including contract testing, integration testing, and service virtualization.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm">Postman</span>
+                                <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">REST Assured</span>
+                                <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm">Newman</span>
+                            </div>
+                            <a href="#" class="text-purple-600 hover:text-purple-800 font-semibold">View Details <i class="fas fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c858f556-12eb-4adc-9e0c-c65a7e5cc43a.png" alt="Data quality testing dashboard showing database validation rules, data integrity checks, ETL testing results, and data migration verification metrics" class="w-full h-48 object-cover" />
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-3 text-gray-800">Data Quality Assurance</h3>
+                            <p class="text-gray-600 mb-4">Data validation and quality assurance testing for ETL processes, data migration projects, and database integrity verification.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm">SQL</span>
+                                <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">ETL Testing</span>
+                                <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm">Data Validation</span>
+                            </div>
+                            <a href="#" class="text-purple-600 hover:text-purple-800 font-semibold">View Details <i class="fas fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education & Certifications -->
+    <section id="education" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="section-fade">
+                <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">Education & Certifications</h2>
+                <div class="grid md:grid-cols-2 gap-12">
+                    <!-- Education -->
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-8 text-gray-800 flex items-center">
+                            <i class="fas fa-graduation-cap text-purple-600 mr-3"></i>
+                            Education
+                        </h3>
+                        <div class="space-y-6">
+                            <div class="border-l-4 border-purple-500 pl-6">
+                                <h4 class="text-xl font-semibold text-gray-800">Bachelor of Computer Science</h4>
+                                <p class="text-purple-600 font-medium">University Name • 2021 - Present</p>
+                                <p class="text-gray-600 mt-2">Focusing on software engineering, algorithms, data structures, and quality assurance methodologies. Active in programming clubs and testing communities.</p>
+                            </div>
+                            <div class="border-l-4 border-blue-500 pl-6">
+                                <h4 class="text-xl font-semibold text-gray-800">Software Testing Diploma</h4>
+                                <p class="text-blue-600 font-medium">Tech Institute • 2022</p>
+                                <p class="text-gray-600 mt-2">Comprehensive program covering manual testing, automation frameworks, and industry best practices.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Certifications -->
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-8 text-gray-800 flex items-center">
+                            <i class="fas fa-certificate text-purple-600 mr-3"></i>
+                            Certifications
+                        </h3>
+                        <div class="space-y-4">
+                            <div class="bg-gradient-to-r from-purple-50 to-purple-100 p-4 rounded-lg">
+                                <h4 class="font-semibold text-gray-800">ISTQB Foundation Level</h4>
+                                <p class="text-gray-600">International Software Testing Qualifications Board</p>
+                            </div>
+                            <div class="bg-gradient-to-r from-blue-50 to-blue-100 p-4 rounded-lg">
+                                <h4 class="font-semibold text-gray-800">Certified Agile Tester (CAT)</h4>
+                                <p class="text-gray-600">Agile Testing Alliance</p>
+                            </div>
+                            <div class="bg-gradient-to-r from-green-50 to-green-100 p-4 rounded-lg">
+                                <h4 class="font-semibold text-gray-800">Selenium WebDriver Certification</h4>
+                                <p class="text-gray-600">Automation Testing Institute</p>
+                            </div>
+                            <div class="bg-gradient-to-r from-yellow-50 to-yellow-100 p-4 rounded-lg">
+                                <h4 class="font-semibold text-gray-800">API Testing Professional</h4>
+                                <p class="text-gray-600">Testing Excellence Academy</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 gradient-bg">
+        <div class="container mx-auto px-6">
+            <div class="section-fade">
+                <h2 class="text-4xl font-bold text-center mb-16 text-white">Get In Touch</h2>
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="text-white">
+                        <h3 class="text-2xl font-semibold mb-6">Let's Collaborate on Quality Assurance</h3>
+                        <p class="text-lg mb-8 text-gray-200">
+                            Ready to ensure your software meets the highest quality standards? Let's discuss how I can contribute to your testing needs and help deliver exceptional user experiences.
+                        </p>
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-envelope text-yellow-400 text-xl mr-4"></i>
+                                <span>youssef.hebish@email.com</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-phone text-yellow-400 text-xl mr-4"></i>
+                                <span>+20 123 456 7890</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-map-marker-alt text-yellow-400 text-xl mr-4"></i>
+                                <span>Cairo, Egypt</span>
+                            </div>
+                        </div>
+                        <div class="flex space-x-4 mt-8">
+                            <a href="#" class="text-white hover:text-yellow-400 transition-colors">
+                                <i class="fab fa-linkedin text-2xl"></i>
+                            </a>
+                            <a href="#" class="text-white hover:text-yellow-400 transition-colors">
+                                <i class="fab fa-github text-2xl"></i>
+                            </a>
+                            <a href="#" class="text-white hover:text-yellow-400 transition-colors">
+                                <i class="fab fa-twitter text-2xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="glass-effect p-8 rounded-xl">
+                        <form class="space-y-6">
+                            <div>
+                                <input type="text" placeholder="Your Name" class="w-full px-4 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg text-white placeholder-gray-300 focus:outline-none focus:border-yellow-400">
+                            </div>
+                            <div>
+                                <input type="email" placeholder="Your Email" class="w-full px-4 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg text-white placeholder-gray-300 focus:outline-none focus:border-yellow-400">
+                            </div>
+                            <div>
+                                <input type="text" placeholder="Subject" class="w-full px-4 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg text-white placeholder-gray-300 focus:outline-none focus:border-yellow-400">
+                            </div>
+                            <div>
+                                <textarea rows="4" placeholder="Your Message" class="w-full px-4 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg text-white placeholder-gray-300 focus:outline-none focus:border-yellow-400 resize-none"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-yellow-400 text-gray-900 py-3 rounded-lg font-semibold hover:bg-yellow-300 transition-colors transform hover:scale-105">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>© 2024 Youssef Hebish. All rights reserved. | Dedicated to Software Quality Excellence</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('navbar-blur');
+            } else {
+                navbar.classList.remove('navbar-blur');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('translate-x-full');
+        });
+
+        // Close mobile menu when clicking on links
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('translate-x-full');
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Typing animation
+        const texts = [
+            'Software Tester & Computer Science Student',
+            'Quality Assurance Specialist',
+            'Test Automation Engineer',
+            'Bug Hunter & Problem Solver'
+        ];
+        let textIndex = 0;
+        let charIndex = 0;
+        const typingElement = document.getElementById('typing-text');
+
+        function typeText() {
+            if (charIndex < texts[textIndex].length) {
+                typingElement.textContent += texts[textIndex].charAt(charIndex);
+                charIndex++;
+                setTimeout(typeText, 100);
+            } else {
+                setTimeout(eraseText, 2000);
+            }
+        }
+
+        function eraseText() {
+            if (charIndex > 0) {
+                typingElement.textContent = texts[textIndex].substring(0, charIndex - 1);
+                charIndex--;
+                setTimeout(eraseText, 50);
+            } else {
+                textIndex = (textIndex + 1) % texts.length;
+                setTimeout(typeText, 500);
+            }
+        }
+
+        // Start typing animation after a delay
+        setTimeout(() => {
+            typingElement.textContent = '';
+            typeText();
+        }, 1000);
+
+        // Intersection Observer for fade animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections with fade animation
+        document.querySelectorAll('.section-fade').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Animate skill bars when they come into view
+        const skillObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const skillBars = entry.target.querySelectorAll('.skill-progress');
+                    skillBars.forEach(bar => {
+                        const width = bar.style.width;
+                        bar.style.width = '0%';
+                        setTimeout(() => {
+                            bar.style.width = width;
+                        }, 500);
+                    });
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('#skills .section-fade').forEach(section => {
+            skillObserver.observe(section);
+        });
+
+        // Form submission
+        document.querySelector('form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+        });
+
+        // Add loading animation to project cards
+        document.querySelectorAll('.project-card').forEach((card, index) => {
+            card.style.animationDelay = `${index * 0.1}s`;
+        });
+    </script>
+</body>
+</html>
+
